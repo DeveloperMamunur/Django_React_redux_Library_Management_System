@@ -4,13 +4,35 @@ import Home from "./pages/Home"
 import Login from "./features/auth/login"
 import Register from "./features/auth/register"
 import NotFound from "./pages/NotFound"
+import DashboardLayout from "./components/layout/DashboardLayout"
+import Dashboard from "./pages/backend/Dashboard"
+import ProtectedRoute from "./features/auth/ProtectedRoute"
+import { useDispatch } from "react-redux"
+import { useGetProtectedUserQuery } from "./services/userApi"
+import { useEffect } from "react"
+import { logout } from "./features/auth/authSlice"
 
 function App() {
+  const dispatch = useDispatch();
 
+  const { error } = useGetProtectedUserQuery(undefined, {
+    skip: !localStorage.getItem("auth"),
+  });
+
+  useEffect(() => {
+    if (error && error.status === 401) {
+      dispatch(logout());
+    }
+  }, [error, dispatch]);
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route element={<DashboardLayout />} >
+            <Route element={<ProtectedRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Route>
           <Route path="/" element={<BaseLayout />}>
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
