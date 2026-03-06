@@ -12,6 +12,7 @@ import { useGetProtectedUserQuery } from "./services/userApi"
 import { useEffect } from "react"
 import { logout } from "./features/auth/authSlice"
 import BranchView from "./pages/backend/branch/BranchView"
+import AuthorView from "./pages/backend/author/AuthorView"
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +33,8 @@ function App() {
           <Route element={<DashboardLayout />} >
             <Route element={<ProtectedRoute />}>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/branch" element={<BranchView />} />"
+              <Route path="/branch" element={<BranchView />} />
+              <Route path="/author" element={<AuthorView />} />
             </Route>
           </Route>
           <Route path="/" element={<BaseLayout />}>

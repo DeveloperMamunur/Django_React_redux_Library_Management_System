@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Modal from "../../../components/ui/Modal";
-import { useCreateBranchMutation } from "../../../services/branchApi";
+import { useCreateAuthorMutation } from "../../../services/authorApi";
 
-export default function CreateBranchModal({ openModal, setOpenModal }) {
-    const [createBranch] = useCreateBranchMutation();
+export default function CreateAuthorModal({ openModal, setOpenModal }) {
+    const [createAuthor] = useCreateAuthorMutation();
     const [formData, setFormData] = useState({
         name: '',
         code: '',
@@ -22,13 +22,13 @@ export default function CreateBranchModal({ openModal, setOpenModal }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        await createBranch(formData).unwrap();
+        await createAuthor(formData).unwrap();
         setOpenModal(false)
         setFormData({});
     };
 
     return (
-        <Modal openModal={openModal} setOpenModal={setOpenModal} title="Create Branch">
+        <Modal openModal={openModal} setOpenModal={setOpenModal} title="Create Author">
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -41,56 +41,34 @@ export default function CreateBranchModal({ openModal, setOpenModal }) {
                         className="mt-1 p-2 border rounded w-full" />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="code" className="block text-sm font-medium text-gray-700">Code</label>
+                    <label htmlFor="biography" className="block text-sm font-medium text-gray-700">Biography</label>
                     <input 
                         type="text"
-                        name="code"
-                        value={formData.code}
+                        name="biography"
+                        value={formData.biography}
                         onChange={handleChange}
-                        id="code" 
+                        id="biography" 
                         className="mt-1 p-2 border rounded w-full" />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
+                    <label htmlFor="birth_date" className="block text-sm font-medium text-gray-700">Date of Birth</label>
+                    <input 
+                        type="date"
+                        name="birth_date"
+                        value={formData.birth_date}
+                        onChange={handleChange}
+                        id="birth_date" 
+                        className="mt-1 p-2 border rounded w-full" />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="nationality" className="block text-sm font-medium text-gray-700">Nationality</label>
                     <input 
                         type="text"
-                        name="phone"
-                        value={formData.phone}
+                        name="nationality"
+                        value={formData.nationality}
                         onChange={handleChange}
-                        id="phone" 
+                        id="nationality" 
                         className="mt-1 p-2 border rounded w-full" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                    <input 
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        id="email" 
-                        className="mt-1 p-2 border rounded w-full" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
-                    <input 
-                        type="text"
-                        name="address"
-                        value={formData.address}
-                        onChange={handleChange}
-                        id="address" 
-                        className="mt-1 p-2 border rounded w-full" />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="status" className="block text-sm font-medium text-gray-700">Status</label>
-                    <select 
-                        id="status"
-                        name="is_active"
-                        value={formData.is_active}
-                        onChange={handleChange}
-                        className="mt-1 p-2 border rounded w-full">
-                        <option value="true" >Active</option>
-                        <option value="false">Inactive</option>
-                    </select>
                 </div>
                 <div className="flex justify-end mt-4">
                     <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded mr-2">Submit</button>
