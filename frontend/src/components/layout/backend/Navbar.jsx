@@ -24,6 +24,12 @@ export default function Navbar() {
                             >Dashboard</Link>
                     </li>
                     <li>
+                        <Link 
+                            to="/branch"
+                            className="text-gray-500 hover:text-gray-700"
+                            >Branch</Link>
+                    </li>
+                    <li>
                         <button 
                             className="text-blue-500 hover:text-blue-700" 
                             onClick={handleLogout}
