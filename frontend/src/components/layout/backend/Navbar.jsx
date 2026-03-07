@@ -36,6 +36,12 @@ export default function Navbar() {
                             >Author</Link>
                     </li>
                     <li>
+                        <Link 
+                            to="/publisher"
+                            className="text-gray-500 hover:text-gray-700"
+                            >Publisher</Link>
+                    </li>
+                    <li>
                         <button 
                             className="text-blue-500 hover:text-blue-700" 
                             onClick={handleLogout}

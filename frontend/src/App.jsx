@@ -13,6 +13,7 @@ import { useEffect } from "react"
 import { logout } from "./features/auth/authSlice"
 import BranchView from "./pages/backend/branch/BranchView"
 import AuthorView from "./pages/backend/author/AuthorView"
+import PublisherView from "./pages/backend/publisher/PublisherView"
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/branch" element={<BranchView />} />
               <Route path="/author" element={<AuthorView />} />
+              <Route path="/publisher" element={<PublisherView />} />
             </Route>
           </Route>
           <Route path="/" element={<BaseLayout />}>
