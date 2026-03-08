@@ -14,6 +14,8 @@ import { logout } from "./features/auth/authSlice"
 import BranchView from "./pages/backend/branch/BranchView"
 import AuthorView from "./pages/backend/author/AuthorView"
 import PublisherView from "./pages/backend/publisher/PublisherView"
+import CategoryView from "./pages/backend/category/CategoryView"
+import ItemView from "./pages/backend/items/ItemView"
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,8 @@ function App() {
               <Route path="/branch" element={<BranchView />} />
               <Route path="/author" element={<AuthorView />} />
               <Route path="/publisher" element={<PublisherView />} />
+              <Route path="/category" element={<CategoryView />} />
+              <Route path="/item" element={<ItemView />} />
             </Route>
           </Route>
           <Route path="/" element={<BaseLayout />}>

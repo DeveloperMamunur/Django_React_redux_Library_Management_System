@@ -16,7 +16,7 @@ export default function Navbar() {
                 <Link to="/" className="text-3xl font-bold">Library</Link>
             </div>
             <div>
-                <ul className="flex items-center gap-4 text-xl font-semibold">
+                <ul className="flex items-center gap-4 text-lg font-semibold">
                     <li>
                         <Link 
                             to="/dashboard"
@@ -40,6 +40,18 @@ export default function Navbar() {
                             to="/publisher"
                             className="text-gray-500 hover:text-gray-700"
                             >Publisher</Link>
+                    </li>
+                    <li>
+                        <Link 
+                            to="/category"
+                            className="text-gray-500 hover:text-gray-700"
+                            >Category</Link>
+                    </li>
+                    <li>
+                        <Link 
+                            to="/item"
+                            className="text-gray-500 hover:text-gray-700"
+                            >Item</Link>
                     </li>
                     <li>
                         <button 
