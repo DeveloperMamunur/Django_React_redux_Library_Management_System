@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import Author_list, Author_detail, Publisher_list, Publisher_detail, Category_list, Category_detail, Item_list, Item_detail
+from .views import Author_list, Author_detail, Publisher_list, Publisher_detail, Category_list, Category_detail, Item_list, Item_detail, Copy_list, Copy_detail
+
 
 
 urlpatterns = [
@@ -11,4 +12,6 @@ urlpatterns = [
     path('categories/<int:pk>/', Category_detail.as_view()),
     path('items/', Item_list.as_view()),
     path('items/<int:pk>/', Item_detail.as_view()),
+    path('copies/', Copy_list.as_view()),
+    path('copies/<int:pk>/', Copy_detail.as_view()),
 ]

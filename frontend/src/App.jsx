@@ -16,6 +16,7 @@ import AuthorView from "./pages/backend/author/AuthorView"
 import PublisherView from "./pages/backend/publisher/PublisherView"
 import CategoryView from "./pages/backend/category/CategoryView"
 import ItemView from "./pages/backend/items/ItemView"
+import CopyView from "./pages/backend/copy/CopyView"
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
               <Route path="/publisher" element={<PublisherView />} />
               <Route path="/category" element={<CategoryView />} />
               <Route path="/item" element={<ItemView />} />
+              <Route path="/copy" element={<CopyView />} />
             </Route>
           </Route>
           <Route path="/" element={<BaseLayout />}>
